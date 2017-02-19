@@ -1,0 +1,19 @@
+{
+  "name": "react-redux-es6",
+  "version": "1.0.0",
+  "description": "Learning how to put together the entire React development environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YashdalfTheGray/react-redux-es6.git"
+  },
+  "author": "Yash Kulshrestha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YashdalfTheGray/react-redux-es6/issues"
+  },
+  "homepage": "https://github.com/YashdalfTheGray/react-redux-es6#readme"
+}
