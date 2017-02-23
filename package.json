@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
       "prestart": "babel-node tools/start-message.js",
-      "start": "babel-node tools/server.js",
+      "start": "npm-run-all --parallel server linter:watch",
+      "server": "babel-node tools/server.js",
       "linter": "esw webpack.config.* src tools",
       "linter:watch": "npm run linter -- --watch",
       "webpack-config-validator": "node --print \"require('./node_modules/webpack/lib/validateSchema.js')(require('./node_modules/webpack/schemas/webpackOptionsSchema'), require('./webpack.config.dev')).length === 0 ? 'Webpack config valid.' : 'Webpack config invalid.'\""
