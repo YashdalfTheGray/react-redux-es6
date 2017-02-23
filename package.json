@@ -4,6 +4,7 @@
   "description": "Learning how to put together the entire React development environment",
   "main": "index.js",
   "scripts": {
+      "prestart": "babel-node tools/start-message.js",
       "start": "babel-node tools/server.js",
       "webpack-config-validator": "node --print \"require('./node_modules/webpack/lib/validateSchema.js')(require('./node_modules/webpack/schemas/webpackOptionsSchema'), require('./webpack.config.dev')).length === 0 ? 'Webpack config valid.' : 'Webpack config invalid.'\""
   },
