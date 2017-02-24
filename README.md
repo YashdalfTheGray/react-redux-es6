@@ -4,3 +4,4 @@ Learning how to put together the entire React development environment
 ## Resources
 
 * [Redux Starter](https://github.com/coryhouse/pluralsight-redux-starter)
+* [Material UI docs](http://www.material-ui.com/#/)
