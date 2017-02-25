@@ -4,14 +4,14 @@
   "description": "Learning how to put together the entire React development environment",
   "main": "index.js",
   "scripts": {
-      "prestart": "babel-node tools/start-message.js",
-      "start": "npm-run-all --parallel server linter:watch test:watch",
-      "server": "babel-node tools/server.js",
-      "linter": "esw webpack.config.* src tools",
-      "linter:watch": "npm run linter -- --watch",
-      "test": "mocha --reporter progress tools/test-setup.js \"src/**/*.spec.js\"",
-      "test:watch": "npm run test -- --watch",
-      "webpack-config-validator": "node --print \"require('./node_modules/webpack/lib/validateSchema.js')(require('./node_modules/webpack/schemas/webpackOptionsSchema'), require('./webpack.config.dev')).length === 0 ? 'Webpack config valid.' : 'Webpack config invalid.'\""
+    "prestart": "babel-node tools/start-message.js",
+    "start": "npm-run-all --parallel server linter:watch test:watch",
+    "server": "babel-node tools/server.js",
+    "linter": "esw webpack.config.* src tools",
+    "linter:watch": "npm run linter -- --watch",
+    "test": "mocha --reporter progress tools/test-setup.js \"src/**/*.spec.js\"",
+    "test:watch": "npm run test -- --watch",
+    "webpack-config-validator": "node --print \"require('./node_modules/webpack/lib/validateSchema.js')(require('./node_modules/webpack/schemas/webpackOptionsSchema'), require('./webpack.config.dev')).length === 0 ? 'Webpack config valid.' : 'Webpack config invalid.'\""
   },
   "repository": {
     "type": "git",
@@ -50,7 +50,9 @@
     "css-loader": "^0.26.1",
     "enzyme": "^2.7.1",
     "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "eslint-watch": "^3.0.0",
     "eventsource-polyfill": "^0.9.6",
