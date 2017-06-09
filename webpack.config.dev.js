@@ -1,21 +1,21 @@
 const webpack = require('webpack');
-const path = require('path');
+const { resolve, join } = require('path');
 
 module.exports = {
     devtool: 'inline-source-map',
     entry: [
         'eventsource-polyfill',
         'webpack-hot-middleware/client?reload=true',
-        path.resolve(__dirname, 'src/index')
+        resolve(__dirname, 'src/index')
     ],
     target: 'web',
     output: {
-        path: __dirname + '/dist',
+        path: resolve(__dirname, '/dist'),
         publicPath: '/',
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'src')
+        contentBase: resolve(__dirname, 'src')
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -28,7 +28,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                include: path.join(__dirname, 'src'),
+                include: join(__dirname, 'src'),
                 use: ['babel-loader']
             },
             {
