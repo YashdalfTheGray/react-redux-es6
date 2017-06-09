@@ -1,8 +1,9 @@
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
-import config from '../webpack.config.dev';
 import open from 'open';
+
+import config from '../webpack.config.dev';
 
 const port = 3000;
 const app = express();
@@ -19,7 +20,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 
-app.listen(port, error => {
+app.listen(port, (error) => {
     if (error) {
         console.log(error);
     }
