@@ -6,19 +6,22 @@ require.extensions['.css'] = () => null;
 require.extensions['.png'] = () => null;
 require.extensions['.jpg'] = () => null;
 
-const jsdom = require('jsdom').jsdom;
-const exposedProperties = ['window', 'navigator', 'document'];
+const { JSDOM } = require('jsdom');
 
-global.document = jsdom('');
-global.window = document.defaultView;
+const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
+const { window } = jsdom;
 
-Object.keys(document.defaultView).forEach((property) => {
-    if (typeof global[property] === 'undefined') {
-        exposedProperties.push(property);
-        global[property] = document.defaultView[property];
-    }
-});
+function copyProps(src, target) {
+    const props = Object.getOwnPropertyNames(src)
+    .filter(prop => typeof target[prop] === 'undefined')
+    .map(prop => Object.getOwnPropertyDescriptor(src, prop));
 
-global.navigator = { userAgent: 'node.js' };
+    Object.defineProperties(target, props);
+}
 
-documentRef = document;  //eslint-disable-line no-undef
+global.window = window;
+global.document = window.document;
+global.navigator = {
+    userAgent: 'node.js'
+};
+copyProps(window, global);
