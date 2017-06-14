@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
 
-class App extends React.Component {
+import muiTheme from '../theme';
+
+console.log(muiTheme);
+
+export default class App extends React.Component {
     constructor(props) {
         super(props);
 
@@ -28,27 +31,24 @@ class App extends React.Component {
 
     render() {
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={muiTheme}>
                 <div>
                     <AppBar
                         title="Pluralsight Administration"
                         onLeftIconButtonTouchTap={this.handleMenuClick} />
-                    <div className="container">{this.props.children}</div>
                     <Drawer
                         docked={false}
                         open={this.state.sideNavOpen}
                         onRequestChange={this.handleSideNavStateChange}>
-                        <Link to="home"><MenuItem primaryText="Home" /></Link>
-                        <Link to="about"><MenuItem primaryText="About" /></Link>
+                        <MenuItem primaryText="Home" />
+                        <MenuItem primaryText="About" />
                     </Drawer>
+                    <div className="list horizontal" style={{ margin: '16px' }}>
+                        <RaisedButton label="Primary" primary />
+                        <RaisedButton label="Secondary" secondary />
+                    </div>
                 </div>
             </MuiThemeProvider>
         );
     }
 }
-
-App.propTypes = {
-    children: PropTypes.object.isRequired
-};
-
-export default App;
